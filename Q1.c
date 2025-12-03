@@ -30,7 +30,7 @@ double calculateRepayment(double loan, double interestRate, int remainingYears, 
         newLoan = loan + interest - totalPayment;
     }
 
-    printf("Year %d: Remaining loan = %.2f\n", currentYear, newLoan);
+    printf("Year %d: Remaining loan = %.2f $\n", currentYear, newLoan);
 
     return calculateRepayment(newLoan, interestRate, remainingYears - 1, currentYear + 1, installment, extraPayment);
 }
@@ -43,13 +43,13 @@ int main() {
     double fixedInstallment = estimateInstallment(initialLoan, interestRate, totalYears);
     
     printf("--- Repayment Trace (100,000 at 5%% over 3 years) ---\n");
-    printf("Fixed Annual Installment: %.2f\n", fixedInstallment);
+    printf("Fixed Annual Installment: %.2f $\n", fixedInstallment);
     
     totalRepayment = 0.0; 
     
     calculateRepayment(initialLoan, interestRate, totalYears, 1, fixedInstallment, 0.0);
     
-    printf("Total Repayment Over %d Years: %.2f\n", totalYears, totalRepayment);
+    printf("Total Repayment Over %d Years: %.2f $\n", totalYears, totalRepayment);
     
     return 0;
 }
